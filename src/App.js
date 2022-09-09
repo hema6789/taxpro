@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import './App.css';
 import axios from "axios";
 
 const TaxId = () => {
   const [taxId, setTaxId] = useState();
   const [coundtycode, setcountrycode] = useState();
-  const [cname,setCName] = useState()
+  const [cname,setCName] = useState();
   
   const validateTaxID = () => {
-	  
     taxId.length > 0 &&
 	coundtycode.length > 0 &&
       axios
@@ -20,14 +20,15 @@ const TaxId = () => {
 		//console.log(res);
   };
    //console.log("SK2023172459");
-   console.log();
+  
   return (
-    <div>
+    <div className="box">
+
       <div className="form-group row">
           <input
             className="input"
             type="text"
-            placeholder="Country"
+            placeholder="Country Code"
             onChange={(e) => setcountrycode(e.target.value)}
           />
         </div>
@@ -43,8 +44,12 @@ const TaxId = () => {
           <button className="btn" onClick={() => validateTaxID()}>
             Validate
           </button>
-		  
-		  Company Name : {cname}
+          
+		  <p>Company Name : {cname}</p>
+      <p> Example -
+        Countrycode = SE  &nbsp;
+        VAT No = SE556656688001
+ </p>
         </div>
     </div>
   );
